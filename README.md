@@ -1,2 +1,2 @@
 # rps
-Rock Paper scissors js
+Rock Paper Scissors JS
