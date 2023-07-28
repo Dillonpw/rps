@@ -25,5 +25,6 @@ function play(getUserChoice){
     || getUserChoice === 'paper' && computerPlay === 'rock'){
     return "You Win!", playerScore +=1
 }
+alert('You chose: ${getUserChoice}\nComputer Chose: ${computerPlay}\n\n${result}\n${playerScore}\n${computerScore')
 }
 
