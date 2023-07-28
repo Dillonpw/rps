@@ -4,14 +4,15 @@ const computerScore = ""
 const winnerScore = 5
 
 function getComputerChoice(){
-    const randomChoice = Math.floor(Math.random() * choices.length).toLowerCase;
+    const randomChoice = Math.floor(Math.random() * choices.length);
     let computerPick = choices[randomChoice]
-    console.log(computerPick)
+    return computerPick;
 }
+
 function getPlayerchoice(){
     let playerPick = prompt("Choose rock, paper, or scissors: ")
-    playerPick = playerPick.toLowerCase
-
+    playerPick = playerPick
+    return playerPick;
 }
 function checkWinner(){
     if (playerScore == winnerScore){
@@ -26,7 +27,7 @@ function rpsGame(){
         getComputerChoice()
         getPlayerchoice()
         checkWinner()
-        if( playerPick == computerPick){
+        if(playerPick == computerPick){
         return "It's a tie!"
 
         }else if (playerPick == 'rock' && computerPick == 'paper'
