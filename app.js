@@ -42,4 +42,9 @@ function play(getUserChoice) {
         { computerScore }
     );
   }
+  if (playerScore == winnerScore){
+    return "You are the winner!"
+  }else {
+    return "Computer wins!"
+  }
 }
