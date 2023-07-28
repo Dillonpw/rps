@@ -5,13 +5,13 @@ const winnerScore = 5
 
 function getComputerChoice(){
     const randomChoice = Math.floor(Math.random() * choices.length);
-    let computerPick = choices[randomChoice]
+    let computerPick = choices[randomChoice].toLowerCase();
     return computerPick;
 }
 
-function getPlayerchoice(){
-    let playerPick = prompt("Choose rock, paper, or scissors: ")
-    playerPick = playerPick
+function getPlayerChoice(){
+    let playerPick = prompt("Choose rock, paper, or scissors: ");
+    playerPick = playerPick.toLowerCase();
     return playerPick;
 }
 function checkWinner(){
@@ -23,27 +23,29 @@ function checkWinner(){
     }
 
 function rpsGame(){
+    
     for (playerScore < winnerScore || computerScore < winnerScore;;){
-
-        if(playerPick == computerPick){
+        computerPlay = getComputerChoice();
+        playerPlay = getPlayerchoice();
+        winner = checkWinner();
+        if(playerPlay == computerPlay){
         return "It's a tie!"
 
-        }else if (playerPick == 'rock' && computerPick == 'paper'
-            || playerPick == 'paper' && computerPick == 'scissors' 
-            || playerPick == 'scissors' && computerPick == 'rock'){
+        }else if (playerPlay == 'rock' && computerPlay == 'paper'
+            || playerPlay == 'paper' && computerPlay == 'scissors' 
+            || playerPlay == 'scissors' && computerPlay == 'rock'){
             return "Computer wins!", computerScore += 1
 
-        }else if (playerPick == 'rock' && computerPick == 'scissors' 
-            || playerPick == 'scissors' && computerPick == 'paper'
-            || playerPick == 'paper' && computerPick == 'rock'){
+        }else if (playerPlay == 'rock' && computerPlay == 'scissors' 
+            || playerPlay == 'scissors' && computerPlay == 'paper'
+            || playerPlay == 'paper' && computerPlay == 'rock'){
             return "You Win!", playerScore +=1
         }
         console.log('player score = ' + {playerScore})
         console.log('Computer score = ' + {computerScore})
     }
 }
-getComputerChoice()
-getPlayerchoice()
+
 rpsGame()
 
 
