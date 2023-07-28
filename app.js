@@ -11,7 +11,8 @@ function getComputerChoice(){
 
 
 function rpsRound(){
-    let playerPick = prompt("Choose your weapon: ").toLowerCase
+    let playerPick = prompt("Choose your weapon: ")
+     playerPick = playerPick.toLowerCase
     getComputerChoice()
     if (playerPick == computerPick){
     return "It's a tie!"
