@@ -25,9 +25,7 @@ function checkWinner(){
 function rpsGame(){
     
     for (playerScore < winnerScore || computerScore < winnerScore;;){
-        computerPlay = getComputerChoice();
-        playerPlay = getPlayerchoice();
-        winner = checkWinner();
+
         if(playerPlay == computerPlay){
         return "It's a tie!"
 
