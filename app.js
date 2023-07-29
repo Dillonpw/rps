@@ -1,51 +1,51 @@
-const choices = ["rock", "paper", "scissors"];
-const playerScore = "";
-const computerScore = "";
-const winnerScore = 5;
+let userWins = 0;
+let computerWins = 0;
+const maxWins = 5;
 
-function getComputerChoice() {
-  const randomChoice = Math.floor(Math.random() * choices.length);
-  let computerPick = choices[randomChoice].toLowerCase();
-  return choices[computerPick];
+function computerChoice() {
+  const choices = ['rock', 'paper', 'scissors'];
+  const randomNum = Math.floor(Math.random() * choices.length);
+  return choices[randomNum];
 }
 
-function play(getUserChoice) {
-  while (playerScore || computerScore < winnerScore) {
-    const computerPlay = getComputerChoice();
-    let result = "";
+function updateScore() {
+  document.getElementById('userScore').textContent = userWins;
+  document.getElementById('computerScore').textContent = computerWins;
 
-    if (getUserChoice === computerPlay) {
-      result = "It's a Tie!";
-    } else if (
-      (getUserChoice === "rock" && computerPlay === "paper") ||
-      (getUserChoice === "paper" && computerPlay === "scissors") ||
-      (getUserChoice === "scissors" && computerPlay === "rock")
-    ) {
-      return "Computer wins!", (computerScore += 1);
-    } else if (
-      (getUserChoice === "rock" && computerPlay === "scissors") ||
-      (getUserChoice === "scissors" && computerPlay === "paper") ||
-      (getUserChoice === "paper" && computerPlay === "rock")
-    ) {
-      return "You Win!", (playerScore += 1);
-    }
-    alert(
-      "You chose: " +
-        getUserChoice  +
-        "\nComputer Chose: " +
-        computerPlay +
-        "\n\n" +
-         result +
-        "\n" +
-        playerScore  +
-        "\n" +
-        computerScore 
-    );
+  if (userWins === maxWins) {
+    alert("Congratulations! You win!");
+    resetGame();
+  } else if (computerWins === maxWins) {
+    alert("Sorry, the computer won! ");
+    resetGame();
+  }
+}
+
+function resetGame() {
+  userWins = 0;
+  computerWins = 0;
+  updateScore();
+}
+
+function play(userChoice) {
+  const computerChoiceValue = computerChoice();
+  let result = '';
+
+  if (userChoice === computerChoiceValue) {
+    result = "It's a tie!";
+  } else if (
+    (userChoice === 'rock' && computerChoiceValue === 'scissors') ||
+    (userChoice === 'paper' && computerChoiceValue === 'rock') ||
+    (userChoice === 'scissors' && computerChoiceValue === 'paper')
+  ) {
+    result = 'You win!';
+    userWins++;
+  } else {
+    result = 'Computer wins!';
+    computerWins++;
   }
 
-  if (playerScore == winnerScore){
-    return "You are the winner!"
-  }else {
-    return "Computer wins!"
-  }
+  updateScore();
+
+  alert(`You chose: ${userChoice}\nComputer chose: ${computerChoiceValue}\n\n${result}`);
 }
