@@ -31,17 +31,18 @@ function play(getUserChoice) {
     }
     alert(
       "You chose: " +
-        { getUserChoice } +
+        getUserChoice  +
         "\nComputer Chose: " +
-        { computerPlay } +
+        computerPlay +
         "\n\n" +
-        { result } +
+         result +
         "\n" +
-        { playerScore } +
+        playerScore  +
         "\n" +
-        { computerScore }
+        computerScore 
     );
   }
+
   if (playerScore == winnerScore){
     return "You are the winner!"
   }else {
