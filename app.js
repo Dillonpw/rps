@@ -13,10 +13,10 @@ function updateScore() {
   document.getElementById('computerScore').textContent = computerWins;
 
   if (userWins === maxWins) {
-    alert("Congratulations! You win!");
+    alert("Congratulations! You won 5 rounds!");
     resetGame();
   } else if (computerWins === maxWins) {
-    alert("Sorry, the computer won! ");
+    alert("Sorry, the computer won 5 rounds first! ");
     resetGame();
   }
 }
