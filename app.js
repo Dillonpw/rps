@@ -1,5 +1,6 @@
 let userWins = 0;
 let computerWins = 0;
+let ties = 0;
 const maxWins = 5;
 
 function computerChoice() {
@@ -8,15 +9,39 @@ function computerChoice() {
   return choices[randomNum];
 }
 
-function updateScore() {
+function updateScore(userChoice, computerChoiceValue, result) {
   document.getElementById('userScore').textContent = userWins;
   document.getElementById('computerScore').textContent = computerWins;
+  document.getElementById('ties').textContent = ties
+ 
+  const battleText = `You chose: ${userChoice}\nComputer chose: ${computerChoiceValue}\n\n${result}`;
+  document.getElementById('battle').textContent = battleText;
+ 
+
 
   if (userWins === maxWins) {
-    alert("Congratulations! You won 5 rounds!");
+    const customAlert = document.getElementById('customAlert');
+  const customAlertMessage = document.getElementById('customAlertMessage');
+  const customAlertButton = document.getElementById('customAlertButton');
+  
+  customAlertMessage.textContent = "You Won! Click here to play again.";
+  customAlert.style.display = 'flex';
+  
+  customAlertButton.addEventListener('click', function() {
+    customAlert.style.display = 'none';
+  });
     resetGame();
   } else if (computerWins === maxWins) {
-    alert("Sorry, the computer won 5 rounds first! ");
+    const customAlert = document.getElementById('customAlert');
+  const customAlertMessage = document.getElementById('customAlertMessage');
+  const customAlertButton = document.getElementById('customAlertButton');
+  
+  customAlertMessage.textContent = "Computer Won! Click here to play again.";
+  customAlert.style.display = 'flex';
+  
+  customAlertButton.addEventListener('click', function() {
+    customAlert.style.display = 'none';
+  });
     resetGame();
   }
 }
@@ -24,7 +49,11 @@ function updateScore() {
 function resetGame() {
   userWins = 0;
   computerWins = 0;
-  updateScore();
+  ties = 0;
+  updateScore('', '', '');
+  
+  // Hide battle text
+  document.getElementById('battle').style.display = 'none';
 }
 
 function play(userChoice) {
@@ -33,6 +62,7 @@ function play(userChoice) {
 
   if (userChoice === computerChoiceValue) {
     result = "It's a tie!";
+    ties++;
   } else if (
     (userChoice === 'rock' && computerChoiceValue === 'scissors') ||
     (userChoice === 'paper' && computerChoiceValue === 'rock') ||
@@ -45,7 +75,5 @@ function play(userChoice) {
     computerWins++;
   }
 
-  updateScore();
-
-  alert(`You chose: ${userChoice}\nComputer chose: ${computerChoiceValue}\n\n${result}`);
+  updateScore(userChoice, computerChoiceValue, result);
 }

@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock, Paper, Scissors</title>
-    <script src="app.js"></script>
-    <link href="styles.css" rel="stylsheet"/>
-</head>
-<body>
-    <h1> Rock Paper Scissors!</h1>
-    <p>Choose Your Weapon:</p>
-<button onclick="play('rock')">Rock</button>
-<button onclick="play('paper')">Paper</button>
-<button onclick="play('scissors')">Scissors</button>
-
-<p>You:<span id="userScore">0</span></p>
-<p>Computer:<span id="computerScore">0</span></p>
-
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Rock, Paper, Scissors</title>
+        <link href="styles.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:ital,wght@0,400;1,700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="content">
+            <h1 id="title">Rock Paper Scissors!</h1>
+            <p id="choose">Choose Your Weapon:</p>
+            <button class="playBtn" onclick="play('rock')">Rock</button>
+            <button class="playBtn" onclick="play('paper')">Paper</button>
+            <button class="playBtn" onclick="play('scissors')">Scissors</button>
+            <div id="battle"></div>
+            <div class="tracker">
+                <p id="youScore">You:<span id="userScore">0</span></p>
+                <p id="compScore">Computer:<span id="computerScore">0</span></p>
+                <p id="tieScore">Ties:<span id="ties">0</span></p>
+            </div>
+            <div id="customAlert" class="custom-alert">
+                <div class="custom-alert-content">
+                  <p id="customAlertMessage"></p>
+                  <button id="customAlertButton">Play Again</button>
+                </div>
+              </div>
+        </div>
+        <script src="app.js" defer></script>
+    </body>
 </html>
