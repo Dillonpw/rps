@@ -14,7 +14,7 @@ function updateScore(userChoice, computerChoiceValue, result) {
     document.getElementById('computerScore').textContent = computerWins;
     document.getElementById('ties').textContent = ties;
 
-    const battleText = `You chose: ${userChoice}\nComputer chose: ${computerChoiceValue}\n\n${result}`;
+    const battleText = `You chose: ${userChoice}! Computer chose: ${computerChoiceValue}! ${result}`;
     document.getElementById('battle').textContent = battleText;
 
     if (userWins === maxWins) {
@@ -23,7 +23,7 @@ function updateScore(userChoice, computerChoiceValue, result) {
             document.getElementById('customAlertMessage');
         const customAlertButton = document.getElementById('customAlertButton');
 
-        customAlertMessage.textContent = 'You Won! Click here to play again.';
+        customAlertMessage.textContent = 'You Won! Click here to play again';
         customAlert.style.display = 'flex';
 
         customAlertButton.addEventListener('click', function () {
@@ -37,7 +37,7 @@ function updateScore(userChoice, computerChoiceValue, result) {
         const customAlertButton = document.getElementById('customAlertButton');
 
         customAlertMessage.textContent =
-            'Computer Won! Click here to play again.';
+            'You Lose! Click here to play again';
         customAlert.style.display = 'flex';
 
         customAlertButton.addEventListener('click', function () {
@@ -75,6 +75,7 @@ function play(userChoice) {
         result = 'Computer wins!';
         computerWins++;
     }
+    document.getElementById('battle').style.display = 'block'
 
     updateScore(userChoice, computerChoiceValue, result);
 }
